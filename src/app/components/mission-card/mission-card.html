@@ -1,0 +1,42 @@
+<div class="card">
+  <img
+    [src]="mission.links.patch?.small || 'https://via.placeholder.com/100?text=No+Image'"
+    [alt]="mission.name"
+    class="patch"
+  />
+
+  <h2>{{ mission.name }}</h2>
+
+  <p><strong>Flight Number:</strong> {{ mission.flight_number }}</p>
+  <p><strong>Date:</strong> {{ mission.date_utc | date:'mediumDate' }}</p>
+
+  @switch (mission.success) {
+    @case (true) {
+      <p class="status success">Status: Successful</p>
+    }
+    @case (false) {
+      <p class="status failed">Status: Failed</p>
+    }
+    @default {
+      <p class="status unknown">Status: Unknown</p>
+    }
+  }
+
+  <p class="details">
+    {{ mission.details || 'No mission details available.' }}
+  </p>
+
+  <div class="links">
+    @if (mission.links.article) {
+      <a [href]="mission.links.article" target="_blank">Article</a>
+    }
+
+    @if (mission.links.wikipedia) {
+      <a [href]="mission.links.wikipedia" target="_blank">Wikipedia</a>
+    }
+
+    @if (mission.links.webcast) {
+      <a [href]="mission.links.webcast" target="_blank">Webcast</a>
+    }
+  </div>
+</div>

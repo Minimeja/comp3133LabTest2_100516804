@@ -1,0 +1,55 @@
+.card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 18px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.patch {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 15px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.status {
+  font-weight: bold;
+}
+
+.success {
+  color: green;
+}
+
+.failed {
+  color: red;
+}
+
+.unknown {
+  color: #666;
+}
+
+.details {
+  margin-top: 12px;
+  line-height: 1.4;
+}
+
+.links {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.links a {
+  text-decoration: none;
+  color: #1976d2;
+  font-weight: 500;
+}

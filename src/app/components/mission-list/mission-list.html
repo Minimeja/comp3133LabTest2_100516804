@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>SpaceX Mission Explorer</h1>
+  <p class="subtitle">Search and filter SpaceX launches</p>
+
+  <div class="filters">
+    <input
+      type="text"
+      placeholder="Search by mission name"
+      (input)="onSearch($event)"
+    />
+
+    <select (change)="onStatusChange($event)">
+      <option value="all">All Missions</option>
+      <option value="success">Successful</option>
+      <option value="failed">Failed</option>
+      <option value="unknown">Unknown</option>
+    </select>
+  </div>
+
+  @if (loading()) {
+    <p class="message">Loading missions...</p>
+  } @else if (errorMessage()) {
+    <p class="message error">{{ errorMessage() }}</p>
+  } @else if (filteredMissions().length === 0) {
+    <p class="message">No missions found.</p>
+  } @else {
+    <div class="mission-grid">
+      @for (mission of filteredMissions(); track mission.id) {
+        <app-mission-card [mission]="mission"></app-mission-card>
+      }
+    </div>
+  }
+</div>
